@@ -18,9 +18,7 @@
                 <input type="text" id="usuario" name="usuario" required><br><br>
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha" required><br><br>
-            
-            
-                <button class="botao" onclick="Logar('usuario','senha','resultado')">Entrar</button><br><br>
+                <input class="botao" type=submit><br><br>
             </form>
         </div>
         
