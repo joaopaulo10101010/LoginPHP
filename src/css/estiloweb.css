@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.centralizar{
+    display: flex;
+    justify-content: center;
+    
+}
+#conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid rgb(124, 166, 255);
+    padding: 5%;
+    background: radial-gradient(white, white,white,white, blue) ;
+}
+#formulario{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: auto;
+    align-items: center;
+}
+#detalhes{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.borda{
+    border: 1px solid black;
+}
+
+form{
+    padding: 2%;
+    border-radius: 2rem;
+    background-color: rgb(150, 255, 150);
+}
+
+form section{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+form button{
+    width: 20%;
+    height: auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 1rem;
+
+    
+}
+#tituloPix{
+    border: 1px solid black;
+    padding: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 2%;
+    border-radius: 1rem;
+    background-color: aquamarine;
+}
