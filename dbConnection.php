@@ -16,6 +16,9 @@ function MySqlCommand($comando){                            // Função Responsa
     return MySqlConnection()->query($comando);
 }
 
+function MySQLDelete($tabela,$coluna,$value){
+    MySqlCommand("Delete from $tabela where $coluna='$value'");
+}
 /*----------------------------------- (Fim) Função Banco de dados -----------------------------------------------*/ 
 
 /*--------------------------------------- Funções Principais ----------------------------------------------------*/
@@ -28,9 +31,50 @@ function VerificarLogin($email, $senha){
     }
 }
 
-function Cadastrar($email,$senha){
-    MySqlCommand("insert into Tb_usuario(Id, Email, Senha, Ativo) values(0,'$email','$senha',true);");
+function RecuperarSenha($nome,$email,$senha){
+    if(ValidarRecuperar($nome,$email)){
+        AlterarSenha($email,$senha);
+    }
+
 }
+
+function ValidarRecuperar($nome,$email){
+    try{
+        $resultado = MySqlCommand("select * from Tb_usuario where Email='$email';")->fetch_assoc();
+        if($resultado){
+            if($resultado['Nome'] == $nome){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }catch(mysqli_sql_exception $erro){
+        return false;
+    }
+
+}
+
+function Cadastrar($email,$senha,$nome){
+    MySqlCommand("insert into Tb_usuario(Nome, Email, Senha) values('$nome','$email','$senha');");
+}
+
+function AlterarSenha($email,$senha){
+    try{
+        MySqlCommand("update Tb_usuario set Senha='$senha' where Email='$email'");
+    }catch(mysqli_sql_exception $erro){
+        echo("erro");
+    }
+
+
+}
+
+function DeletarUsuario($email){
+    MySQLDelete("tb_usuario","Email",$email);
+}
+
+
 
 /*--------------------------------------- Funções Secundarias --------------------------------------------------*/
 
@@ -57,6 +101,8 @@ function senha($senha){
         }
     }
 }
+
+
 
 
 ?>

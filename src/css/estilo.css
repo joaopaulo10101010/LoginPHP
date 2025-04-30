@@ -32,7 +32,7 @@
     #container{
         color: #ffffff;
         background-color: rgb(200, 109, 76);
-       border-radius: 20px;
+        border-radius: 20px;
         padding: 30px;
         padding-left: 20px;
         margin-left: 420px;
@@ -40,9 +40,6 @@
         margin-top: 20px;
         font-size: 20px;
         font-weight: bold;
-        background-image: linear-gradient(to right, green, rgb(255, 77, 0)); /* Gradiente do verde para o branco */
-        -webkit-background-clip: text; /* Aplica o gradiente apenas ao texto */
-        color: transparent; /* Torna o texto transparente para mostrar o fundo */
         padding: 10px;
     }
     #usuario{
@@ -76,9 +73,6 @@
         margin-left: 30%;
         border-radius: 10px;
         
-        
-        
-
     }
     .h11{
         padding-top: 2%;
@@ -97,4 +91,7 @@
     border-radius: 15px;
     background-color: var(--FontColor6);
     color: white;
+}
+.cadastrar{
+    display: none;
 }
