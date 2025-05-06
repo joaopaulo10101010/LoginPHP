@@ -1,6 +1,6 @@
 <?php
 try {
-    $mySqli = new mySqli("localhost", "root", "12345678", "db2ads");
+    $mySqli = new mySqli("localhost", "root", "root", "db2ads");
 } catch (mysqli_sql_exception $e) {
 }
 
