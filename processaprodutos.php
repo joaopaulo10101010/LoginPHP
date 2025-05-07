@@ -2,14 +2,12 @@
 include 'dbConnection.php';
 session_start();
 
-
 $nome = $_POST["nomeproduto"];
 $descricao = $_POST["descricao"];
 $preco = $_POST["preco"];
 $quantidade = (int) $_POST["quantidade"];
 
 $formulario = $_POST['formulario'];
-
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -25,16 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION["ProdAuthReturn"] = "Cadastro Negado ao enviar formulario";
             header("Location: produtos.php");
             break;
-
     }
-
-
-
-
 }
-
-
-
-
 
 ?>

@@ -108,7 +108,9 @@
         
         <div class="auth-message">
             <?php
-                echo($_SESSION['AuthReturn']);
+                if($_SESSION['AuthReturn'] != "" && $_SESSION['AuthReturn'] != null){
+                    echo($_SESSION['AuthReturn']);
+                }
                 $_SESSION['AuthReturn'] = "";
             ?>
         </div>
