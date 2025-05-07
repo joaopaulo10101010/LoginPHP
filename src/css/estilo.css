@@ -1,97 +1,45 @@
-:root{
-    --FontColor1:#000;
-    --FontColor2:#fe5a02;
-    --FontColor3:#dd0707da;
-    --FontColor4:#fff;
-    --FontColor5:#0d3ce5;
-    --FontColor6:#6e6565;
-    --FontColor7:#fdbc72;
-    --FontColor8:#f3ac5a;
-    --FontColor9:#1cc81c;
-    --FontColor10:#5d5858;
-    }
-    body{
-        background-color: var(--FontColor8);
-        text-align: center;
 
-    }
-    .formular{
-        display: inline;
-        margin-right: 0.1%;
-        margin-left: 1%;
-        color: rgba(0, 0, 0, 0.772);
-        background-color: var(--FontColor7);
-        display:inline-block;
-        border-radius: 9px;
-        width: 100%;
-        align-items: center;
-        padding: 8px;
-        padding-left:initial;
-    
-    }
-    #container{
-        color: #ffffff;
-        background-color: rgb(200, 109, 76);
-        border-radius: 20px;
-        padding: 30px;
-        padding-left: 20px;
-        margin-left: 420px;
-        margin-right: 420px;
-        margin-top: 20px;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 10px;
-    }
-    #usuario{
-        border-style: ridge;
-        border-radius: 8px;
-        box-shadow: #c6a895 0px 2px 15px 0.3px;
-        font-size:12px;
-        font-weight: bold;
-    }
-    #senha{
-        border-style: ridge;
-        border-radius: 8px;
-        box-shadow: #c6a895 0px 2px 15px 0.3px;
-        font-size:12px;
-        font-weight: bold;
-    }
-    .botao{
-        color:#0d3ce5;
-        background-color: rgb(255, 234, 234);
-        padding-left: 40px;
-        padding-right: 40px;
-       
-    }
-    
-    .fixed{
-        background-color: red;
-    }
-    .div1{
-        background-color: #e87c58;
-        width: 40%;
-        margin-left: 30%;
-        border-radius: 10px;
-        
-    }
-    .h11{
-        padding-top: 2%;
-
-    }
-    .h12{
-        padding-bottom: 2%;
-        color: #093c58;
-
-    }
-.buton{
-    width: 16rem;
-    height: 3rem;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 150%;
-    border-radius: 15px;
-    background-color: var(--FontColor6);
-    color: white;
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background-color: white;
 }
-.cadastrar{
-    display: none;
+body {
+    background-color: #f8f9fa;
+    padding-top: 2rem;
+    background-image: url(../assets/backgrund.jpg);
+    background-size: cover;
+}
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+.form-title {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.form-switch {
+    text-align: center;
+    margin-top: 1rem;
+}
+.btn-action {
+    margin-top: 1rem;
+    width: 100%;
+}
+.auth-message {
+    text-align: center;
+    margin-top: 1rem;
+    color: #dc3545;
+    font-weight: bold;
+}
+.borda{
+    border: 1px solid black;
+}
+.container{
+    display: flex;
+    flex-direction: column;
 }
