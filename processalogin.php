@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             if(VerificarLogin($email,$senha)){
                 $_SESSION["AuthReturn"] = "Acesso Permitido";
-                header("Location: produtos.php");
+                header("Location: menu.php");
             }else{
                 $_SESSION["AuthReturn"] = "Acesso Negado";
                 header("Location: login.php");
