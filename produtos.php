@@ -36,9 +36,12 @@
                         <label for="quantidade" class="form-label">Quantidade</label>
                         <input type="number" class="form-control" id="quantidade" name="quantidade" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="linkimg" class="form-label">Link da imagem:</label>
+                        <input type="text" class="form-control" id="linkimg" name="linkimg" required>
+                    </div>
                     <input type="hidden" name="formulario" value="cadastrarproduto">
                     <input value="Cadastrar Produto" class="btn btn-success w-100" type=submit>
-
                     </br>
             <label>
                 <?php
@@ -47,12 +50,9 @@
                 ?>
             </label>
                 </form>
+                <a style='margin-top: 20px;' href="menu.php" class="btn btn-primary w-100">Voltar para o Menu</a>
             </div>
         </div>
-
-        <a class="btn btn-primary" href="menu.php">
-            Voltar
-        </a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

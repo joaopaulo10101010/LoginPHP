@@ -1,3 +1,7 @@
+<?php
+include 'processamenu.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Menu</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="src/css/menu.css">
+  <link rel="stylesheet" href="src\css\menu.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,11 +35,14 @@
     </div>
   </nav>
 
-  <div class="teste">Lista de Produtos</div>
-
-
+  <div id="lista" class="d-flex flex-wrap">
+    <?php
+      ExibirListaProd();
+    ?>
+  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

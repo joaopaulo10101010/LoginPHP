@@ -4,7 +4,7 @@
 
 function MySqlConnection(){
     try{
-        $mysql = new mysqli("localhost","root","root","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
+        $mysql = new mysqli("localhost","root","12345678","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
     }
     catch(mysqli_sql_exception $erro){
         echo("USUARIO VOCÊ FOI MUITO BUROOO!!!!!!!: ".$erro);
@@ -56,6 +56,16 @@ function ValidarRecuperar($nome,$email){
 
 }
 
+function DbGetAll($tabela){
+    if($tabela != null && $tabela != ""){
+        $retorno = MySqlCommand("select * from $tabela");   
+        return $retorno;
+    }else
+    {
+        echo("os valores de entrada são nulos");
+    }
+}
+
 function Cadastrar($email,$senha,$nome){
     MySqlCommand("insert into Tb_usuario(Nome, Email, Senha) values('$nome','$email','$senha');");
 }
@@ -75,8 +85,8 @@ function DeletarUsuario($email){
 }
 
 
-function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade){
-    MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade) values('$nomedoproduto','$descricao','$preco',$quantidade);");
+function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade,$link){
+    MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade, Img_path) values('$nomedoproduto','$descricao','$preco',$quantidade,'$link');");
 }
 
 
