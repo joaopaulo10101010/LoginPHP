@@ -19,7 +19,7 @@ function ExibirListaProd(){
         echo("
         <table>
             <tr>
-                <td colspan='2'><img src='{$produto['Img_path']}'></td>
+                <td class='imagemtable' colspan='2'><img src='{$produto['Img_path']}'></td>
             <tr>
             <tr>
                 <td>Nome: {$produto['NomeDoProduto']}</td>
