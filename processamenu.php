@@ -11,10 +11,10 @@ function ExibirListaProd(){
         while ($produto = mysqli_fetch_assoc($itensdatabela)) {
             $produtos[] = $produto;
         }
-        mysqli_free_result($itensdatabela); // Libera a memória do resultado
+        mysqli_free_result($itensdatabela);
             
         
-
+        
         foreach($produtos as $produto){
         echo("
         <table>
@@ -34,11 +34,14 @@ function ExibirListaProd(){
             </tr>
         </table>
         ");
+        
         }
+        
 
     } else {
         echo "Erro ao buscar produtos: ";
     }
+    
 }
 
 
