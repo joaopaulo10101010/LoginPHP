@@ -4,7 +4,7 @@
 
 function MySqlConnection(){
     try{
-        $mysql = new mysqli("localhost","root","12345678","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
+        $mysql = new mysqli("localhost","root","root","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
     }
     catch(mysqli_sql_exception $erro){
         echo("USUARIO VOCÊ FOI MUITO BUROOO!!!!!!!: ".$erro);
@@ -85,8 +85,8 @@ function DeletarUsuario($email){
 }
 
 
-function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade,$link){
-    MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade, Img_path) values('$nomedoproduto','$descricao','$preco',$quantidade,'$link');");
+function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade,$link,$codigo){
+    MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade, Img_path, Codigo_prod) values('$nomedoproduto','$descricao','$preco',$quantidade,'$link','$codigo');");
 }
 
 
