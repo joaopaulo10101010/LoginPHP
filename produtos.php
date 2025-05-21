@@ -34,7 +34,7 @@ $linkpr = $_SESSION['linkpr'];
     <?php
     
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        if(isset($_POST["botaopesquisa"])){
+        if(isset($_POST["botaopesquisa"]) || $_SESSION["PESQUISANDO"] == true){
             include 'processamenu.php';
             echo('<form id="espacoform" method="post" action="processaprodutos.php">
                     <div class="mb-3">
@@ -65,6 +65,7 @@ $linkpr = $_SESSION['linkpr'];
                     </div>
                     <input type="hidden" name="formulario" value="pesquisar">
                     <input value="Pesquisar Produto" class="btn btn-success w-100" type="submit"> </form>');
+                    $_SESSION["PESQUISANDO"] = false;
         }
         if(isset($_POST["botaoeditar"])){
             include 'processamenu.php';

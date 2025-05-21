@@ -29,6 +29,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION['precopr'] = $campo["Preco"];
             $_SESSION['quantpr'] = $campo["Quantidade"];
             $_SESSION['linkpr'] = $campo["Img_path"];
+            $_SESSION["PESQUISANDO"] = true;
             header("Location: produtos.php");
         break;
 
