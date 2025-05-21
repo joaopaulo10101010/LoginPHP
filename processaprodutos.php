@@ -23,7 +23,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         break;
 
         case 'pesquisar':
-        
+            $campo = PesquisarProduto($codigo);
+            $_SESSION['nomepr'] = $campo["NomeDoProduto"];
+            $_SESSION['descpr'] = $campo["Descricao"];
+            $_SESSION['precopr'] = $campo["Preco"];
+            $_SESSION['quantpr'] = $campo["Quantidade"];
+            $_SESSION['linkpr'] = $campo["Img_path"];
+            header("Location: produtos.php");
         break;
 
         default:

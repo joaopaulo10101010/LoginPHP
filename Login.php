@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php session_start(); ?>
+    <?php session_start();
+    $_SESSION['nomepr'] = "";
+    $_SESSION['descpr'] = "";
+    $_SESSION['precopr'] = "";
+    $_SESSION['quantpr'] = "";
+    $_SESSION['linkpr'] = "";
+    ?>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

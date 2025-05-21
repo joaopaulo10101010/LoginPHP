@@ -4,7 +4,7 @@
 
 function MySqlConnection(){
     try{
-        $mysql = new mysqli("localhost","root","root","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
+        $mysql = new mysqli("localhost","root","12345678","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
     }
     catch(mysqli_sql_exception $erro){
         echo("USUARIO VOCÊ FOI MUITO BUROOO!!!!!!!: ".$erro);
@@ -54,6 +54,15 @@ function ValidarRecuperar($nome,$email){
         return false;
     }
 
+}
+
+function PesquisarProduto($codigo){
+    $resultado = MySqlCommand("Select * from Tb_produto where Codigo_prod=$codigo")->fetch_assoc();
+    if($resultado){
+        return $resultado;
+    }else{
+        return 'falha na pesquisa';
+    }
 }
 
 function DbGetAll($tabela){

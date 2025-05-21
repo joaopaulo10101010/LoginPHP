@@ -1,7 +1,25 @@
 <?php 
 include 'dbConnection.php';
 
-
+function ExibirCodigo(){
+    $tabela = "Tb_produto";
+    $itensdatabela = DbGetAll($tabela);
+    $retorno = "";
+    if ($itensdatabela) {
+        while ($produto = mysqli_fetch_assoc($itensdatabela)) {
+            $produtos[] = $produto;
+        }
+        mysqli_free_result($itensdatabela);
+            
+        
+        
+        foreach($produtos as $produto){
+        echo("<option>{$produto['Codigo_prod']}</option>");
+        }
+    } else {
+        echo "Erro ao buscar produtos: ";
+    }
+}
 
 function ExibirListaProd(){
     $tabela = "Tb_produto";
