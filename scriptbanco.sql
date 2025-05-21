@@ -13,6 +13,7 @@ primary key(Id)
 
 create table Tb_produto(
 Id int auto_increment,
+Codigo_prod int,
 NomeDoProduto varchar(100),
 Descricao varchar(100),
 Preco varchar(100),
