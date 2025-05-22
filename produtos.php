@@ -19,8 +19,29 @@ $linkpr = $_SESSION['linkpr'];
         }
     </style>
 </head>
-<body>
 <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Menu Principal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="btn btn-primary me-2" href="menu.php">E-commerce</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success me-2" href="produtos.php">Gerenciar Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-secondary" href="blackfriday.php">BlackFriday</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">

@@ -1,0 +1,48 @@
+body {
+      background-color: #121212;
+      color: #fff;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      color: #fff;
+      border: 1px solid #333;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    }
+
+    .card-title {
+      color: #ff3c3c;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .navbar-brand {
+      color: #ff3c3c !important;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .btn-secondary {
+      background-color: #ff3c3c;
+      border: none;
+    }
+
+    .btn-secondary:hover {
+      background-color: #ff0000;
+    }
+
+    .rotate-badge {
+        margin-top: 40px;
+        transform: rotate(45deg);
+        transform-origin: top right;
+        font-size: 0.75rem;
+        padding: 5px 15px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    }
