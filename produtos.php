@@ -24,7 +24,7 @@ $linkpr = $_SESSION['linkpr'];
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-                <h4 class="mb-0" id="titulodocampo">Cadastro de Produto</h4>
+                <h4 class="mb-0" id="titulodocampo">Gerenciar Produtos</h4>
             </div>
             <div class="card-body">
                 
@@ -32,9 +32,10 @@ $linkpr = $_SESSION['linkpr'];
     <!-- ********************************** Troca de Formulario ***********************************************      -->
     
     <?php
+
     
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        if(isset($_POST["botaopesquisa"]) || $_SESSION["PESQUISANDO"] == true){
+        if(isset($_POST["botaopesquisa"])){
             include 'processamenu.php';
             echo('<form id="espacoform" method="post" action="processaprodutos.php">
                     <div class="mb-3">
@@ -100,21 +101,12 @@ $linkpr = $_SESSION['linkpr'];
                     <input value="Editar Produto" class="btn btn-success w-100" type="submit"> </form>');
         }
         if(isset($_POST["botaoexcluir"])){
+            include 'processamenu.php';
             echo('<form id="espacoform" method="post" action="processaprodutos.php"><div class="mb-3">
                         <label for="Cod_Prod" class="form-label">Código do Produto</label>
-                        <input type="text" class="form-control" id="Cod_Prod" name="Cod_Prod" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nomeproduto" class="form-label">Nome do Produto</label>
-                        <input type="text" class="form-control" id="nome" name="nomeproduto" readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label for="descricao" class="form-label">Descrição</label>
-                        <textarea class="form-control" id="descricao" name="descricao" rows="3" readonly></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="preco" class="form-label">Preço (R$)</label>
-                        <input type="number" class="form-control" id="preco" name="preco" step="0.01" readonly>
+                        <select class="form-control" name="Cod_Prod" id="Cod_Prod" require>
+                            ');ExibirCodigo();echo('
+                        </select>
                     </div>
 
                     <input type="hidden" name="formulario" value="excluir">
@@ -149,6 +141,40 @@ $linkpr = $_SESSION['linkpr'];
                     <input value="Cadastrar Produto" class="btn btn-success w-100" type="submit"> </form>');
         }
 
+    }else{
+        if($_SESSION["PESQUISANDO"] == true){
+            include 'processamenu.php';
+            echo('<form id="espacoform" method="post" action="processaprodutos.php">
+                    <div class="mb-3">
+                        <label for="Cod_Prod" class="form-label">Código do Produto</label>
+                        <select class="form-control" name="Cod_Prod" id="Cod_Prod" require>
+                        ');ExibirCodigo();echo('
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nomeproduto" class="form-label">Nome do Produto</label>
+                        <input type="text" class="form-control" id="nome" name="nomeproduto" readonly value='.$nomepr.'>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descricao" class="form-label">Descrição</label>
+                        <textarea class="form-control" id="descricao" name="descricao" rows="3" readonly>'.$descpr.'</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="preco" class="form-label">Preço (R$)</label>
+                        <input type="number" class="form-control" id="preco" name="preco" step="0.01" value='.$precopr.' readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantidade" class="form-label">Quantidade</label>
+                        <input type="number" class="form-control" id="quantidade" name="quantidade" value='.$quantpr.' readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkimg" class="form-label">Link da imagem:</label>
+                        <input type="text" class="form-control" id="linkimg" name="linkimg" readonly value='.$linkpr.'>
+                    </div>
+                    <input type="hidden" name="formulario" value="pesquisar">
+                    <input value="Pesquisar Produto" class="btn btn-success w-100" type="submit"> </form>');
+                    $_SESSION["PESQUISANDO"] = false;
+        }
     }
     ?>
     <!-- ********************************************************************************************************      -->

@@ -25,10 +25,10 @@ include 'processamenu.php';
             <a class="btn btn-primary me-2" href="#">E-commerce</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-success me-2" href="produtos.php">Cadastro de Produtos</a>
+            <a class="btn btn-success me-2" href="produtos.php">Gerenciar Produtos</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-secondary" href="#">Em Breve</a>
+            <a class="btn btn-secondary" href="#">BlackFriday</a>
           </li>
         </ul>
       </div>

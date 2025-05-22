@@ -4,10 +4,10 @@
 
 function MySqlConnection(){
     try{
-        $mysql = new mysqli("localhost","root","12345678","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
+        $mysql = new mysqli("localhost","root","root","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
     }
     catch(mysqli_sql_exception $erro){
-        echo("USUARIO VOCÊ FOI MUITO BUROOO!!!!!!!: ".$erro);
+        echo("Não foi possivel conectar ao banco de dados MySQL: ".$erro);
     }
     return $mysql;
 }
@@ -93,9 +93,17 @@ function DeletarUsuario($email){
     MySQLDelete("tb_usuario","Email",$email);
 }
 
+function DeletarProduto($codigo){
+    MySqlCommand("delete from Tb_produto where Codigo_prod=$codigo;");
+}
 
 function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade,$link,$codigo){
     MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade, Img_path, Codigo_prod) values('$nomedoproduto','$descricao','$preco',$quantidade,'$link','$codigo');");
+}
+function AlterarProduto($codigo,$nome,$descricao,$preco,$quantidade,$link){
+    MySqlCommand("SET SQL_SAFE_UPDATES = 0;");
+    MySqlCommand("update Tb_produto set NomeDoProduto='$nome' ,Descricao='$descricao' ,Preco='$preco' ,Quantidade=$quantidade ,Img_path='$link' where Codigo_prod=$codigo;");
+    MySqlCommand("SET SQL_SAFE_UPDATES = 1;");
 }
 
 

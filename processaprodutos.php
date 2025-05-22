@@ -29,9 +29,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $_SESSION['precopr'] = $campo["Preco"];
             $_SESSION['quantpr'] = $campo["Quantidade"];
             $_SESSION['linkpr'] = $campo["Img_path"];
+            $_SESSION["ProdAuthReturn"] = "Pesquisa Realizada";
             $_SESSION["PESQUISANDO"] = true;
             header("Location: produtos.php");
         break;
+
+        case 'editar':
+            AlterarProduto($codigo,$nome,$descricao,$preco,$quantidade,$link);
+            $_SESSION["ProdAuthReturn"] = "Produto Editado com Sucesso";
+            header("Location: produtos.php");
+            break;
+
+        case 'excluir':
+            DeletarProduto($codigo);
+            $_SESSION["ProdAuthReturn"] = "Produto Excluido com Sucesso";
+            header("Location: produtos.php");
+            break;
 
         default:
             $_SESSION["ProdAuthReturn"] = "Cadastro Negado ao enviar formulario";
