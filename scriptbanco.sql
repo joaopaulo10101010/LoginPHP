@@ -1,6 +1,5 @@
 create database db2ads;
 use db2ads;
-drop database db2ads;
 
 create table Tb_usuario(
 Id int auto_increment,
