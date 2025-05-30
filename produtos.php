@@ -92,7 +92,7 @@ $linkpr = $_SESSION['linkpr'];
         if(isset($_POST["botaocadastroblack"])){
             echo('<form id="espacoform" method="post" action="processaprodutos.php"><div class="mb-3">
                         <label for="ano" class="form-label">Ano da Black Friday</label>
-                        <input type="text" class="form-control" name="ano" id="ano" require>
+                        <input type="text" class="form-control" name="ano" id="ano">
                     </div>
                     <div class="mb-3">
                         <label for="dtinicio" class="form-label">Data de Inicio</label>

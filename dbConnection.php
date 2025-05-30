@@ -4,7 +4,7 @@
 
 function MySqlConnection(){
     try{
-        $mysql = new mysqli("localhost","root","12345678","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
+        $mysql = new mysqli("localhost","root","root","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
     }
     catch(mysqli_sql_exception $erro){
         echo("Não foi possivel conectar ao banco de dados MySQL: ".$erro);
@@ -124,7 +124,8 @@ function DeletarProduto($codigo){
 }
 
 function CadastrarPromocao($anoblack,$dtinicio,$dtfim){
-    MySqlCommand("insert into Tb_blackfriday(ano, inicio, fim) VALUES ('$anoblack', '$dtinicio', '$dtfim';");
+    echo($dtinicio);
+    MySqlCommand("insert into Tb_blackfriday(ano, inicio, fim) VALUES ('$anoblack', concat(substr('$dtinicio',1,10),' ',substr('$dtinicio',12,5),':00'), concat(substr('$dtfim',1,10),' ',substr('$dtfim',12,5),':00'));");
 }
 
 function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade,$link,$codigo,$desconto){

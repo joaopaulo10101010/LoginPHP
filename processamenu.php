@@ -86,7 +86,7 @@ function ExibirListaProdblack(){
         foreach ($produtos as $produto) {
             if($produto['BlackFriday'] == true){
                 $dec = intval($produto['Desconto']);
-                $pf = $produto['Preco'] * (1 - ($produto['Desconto']/100));
+                $pf = number_format($produto['Preco'] * (1 - ($produto['Desconto']/100)), 2);
 
                 echo("
                 <div class='col-md-4 mb-4'>
