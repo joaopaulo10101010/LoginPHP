@@ -4,7 +4,7 @@
 
 function MySqlConnection(){
     try{
-        $mysql = new mysqli("localhost","root","root","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
+        $mysql = new mysqli("localhost","root","12345678","db2ads");        // Função Responsavel pela Conexão com o Banco de Dados
     }
     catch(mysqli_sql_exception $erro){
         echo("Não foi possivel conectar ao banco de dados MySQL: ".$erro);
@@ -56,6 +56,32 @@ function ValidarRecuperar($nome,$email){
 
 }
 
+function confirmarPromo(){
+    $resultado = MySqlCommand("select * from Tb_blackfriday t1 where sysdate() between t1.inicio and t1.fim;")->fetch_assoc();
+    if($resultado){
+        if($resultado['Id_promo'] != null){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+
+function getPromo(){
+    $resultado = MySqlCommand("select * from Tb_blackfriday;")->fetch_assoc();
+    if($resultado){
+        return $resultado;
+    }
+}
+
+function getDateTime(){
+    $resultado = MySqlCommand("select sysdate() as 'datatime' from dual;")->fetch_assoc();
+    $retorno = $resultado['datatime'];
+    return $retorno;
+}
+
 function PesquisarProduto($codigo){
     $resultado = MySqlCommand("Select * from Tb_produto where Codigo_prod=$codigo")->fetch_assoc();
     if($resultado){
@@ -97,8 +123,17 @@ function DeletarProduto($codigo){
     MySqlCommand("delete from Tb_produto where Codigo_prod=$codigo;");
 }
 
-function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade,$link,$codigo){
-    MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade, Img_path, Codigo_prod) values('$nomedoproduto','$descricao','$preco',$quantidade,'$link','$codigo');");
+function CadastrarPromocao($anoblack,$dtinicio,$dtfim){
+    MySqlCommand("insert into Tb_blackfriday(ano, inicio, fim) VALUES ('$anoblack', '$dtinicio', '$dtfim';");
+}
+
+function CadastrarProduto($nomedoproduto,$descricao,$preco,$quantidade,$link,$codigo,$desconto){
+    if($desconto != null && $desconto != "0"){
+        MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade, Img_path, Codigo_prod, Desconto, BlackFriday) values('$nomedoproduto','$descricao','$preco',$quantidade,'$link','$codigo',$desconto,1);");
+    }else{
+        MySqlCommand("insert into Tb_produto(NomeDoProduto, Descricao, Preco,Quantidade, Img_path, Codigo_prod) values('$nomedoproduto','$descricao','$preco',$quantidade,'$link','$codigo');");
+    }
+    
 }
 function AlterarProduto($codigo,$nome,$descricao,$preco,$quantidade,$link){
     MySqlCommand("SET SQL_SAFE_UPDATES = 0;");

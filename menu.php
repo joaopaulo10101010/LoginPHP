@@ -27,9 +27,9 @@ include 'processamenu.php';
           <li class="nav-item">
             <a class="btn btn-success me-2" href="produtos.php">Gerenciar Produtos</a>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-secondary" href="blackfriday.php">BlackFriday</a>
-          </li>
+          <?php
+          exibirBlack();
+          ?>
         </ul>
       </div>
     </div>

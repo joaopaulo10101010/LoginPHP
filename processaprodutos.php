@@ -8,6 +8,12 @@ $preco = $_POST["preco"];
 $quantidade = (int) $_POST["quantidade"];
 $link = $_POST["linkimg"];
 $codigo = $_POST["Cod_Prod"];
+$descontoinput = $_POST["desconto"];
+
+
+$anoblack = $_POST["ano"];
+$dtinicio = $_POST["dtinicio"];
+$dtfim = $_POST["dtfim"];
 
 
 $formulario = $_POST['formulario'];
@@ -16,8 +22,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     switch($formulario){
 
+        case 'blackfoi':
+            CadastrarPromocao($anoblack,$dtinicio,$dtfim);
+            $_SESSION["ProdAuthReturn"] = "Cadastro da Black Friday Concluido";
+            header("Location: produtos.php");
+        break;
+
         case 'cadastrarproduto':
-            CadastrarProduto($nome,$descricao,$preco,$quantidade,$link,$codigo);
+            CadastrarProduto($nome,$descricao,$preco,$quantidade,$link,$codigo,$descontoinput);
             $_SESSION["ProdAuthReturn"] = "Cadastro Concluido";
             header("Location: produtos.php");
         break;

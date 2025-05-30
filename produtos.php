@@ -35,9 +35,10 @@ $linkpr = $_SESSION['linkpr'];
           <li class="nav-item">
             <a class="btn btn-success me-2" href="produtos.php">Gerenciar Produtos</a>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-secondary" href="blackfriday.php">BlackFriday</a>
-          </li>
+          <?php
+          include 'processamenu.php';
+          exibirBlack();
+          ?>
         </ul>
       </div>
     </div>
@@ -57,7 +58,6 @@ $linkpr = $_SESSION['linkpr'];
     
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         if(isset($_POST["botaopesquisa"])){
-            include 'processamenu.php';
             echo('<form id="espacoform" method="post" action="processaprodutos.php">
                     <div class="mb-3">
                         <label for="Cod_Prod" class="form-label">Código do Produto</label>
@@ -89,8 +89,24 @@ $linkpr = $_SESSION['linkpr'];
                     <input value="Pesquisar Produto" class="btn btn-success w-100" type="submit"> </form>');
                     $_SESSION["PESQUISANDO"] = false;
         }
+        if(isset($_POST["botaocadastroblack"])){
+            echo('<form id="espacoform" method="post" action="processaprodutos.php"><div class="mb-3">
+                        <label for="ano" class="form-label">Ano da Black Friday</label>
+                        <input type="text" class="form-control" name="ano" id="ano" require>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dtinicio" class="form-label">Data de Inicio</label>
+                        <input type="datetime-local" class="form-control" id="dtinicio" name="dtinicio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dtfim" class="form-label">Data de Inicio</label>
+                        <input type="datetime-local" class="form-control" id="dtfim" name="dtfim" required>
+                    </div>
+                    
+                    <input type="hidden" name="formulario" value="blackfoi">
+                    <input value="Cadastrar Promoção" class="btn btn-success w-100" type="submit"> </form>');
+        }
         if(isset($_POST["botaoeditar"])){
-            include 'processamenu.php';
             
             echo('<form id="espacoform" method="post" action="processaprodutos.php"><div class="mb-3">
                         <label for="Cod_Prod" class="form-label">Código do Produto</label>
@@ -122,7 +138,6 @@ $linkpr = $_SESSION['linkpr'];
                     <input value="Editar Produto" class="btn btn-success w-100" type="submit"> </form>');
         }
         if(isset($_POST["botaoexcluir"])){
-            include 'processamenu.php';
             echo('<form id="espacoform" method="post" action="processaprodutos.php"><div class="mb-3">
                         <label for="Cod_Prod" class="form-label">Código do Produto</label>
                         <select class="form-control" name="Cod_Prod" id="Cod_Prod" require>
@@ -158,13 +173,18 @@ $linkpr = $_SESSION['linkpr'];
                         <label for="linkimg" class="form-label">Link da imagem:</label>
                         <input type="text" class="form-control" id="linkimg" name="linkimg" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="blackonoof"><input id="checkbux" name="blackonoof" type="checkbox"> Produto Disponivel na Black Friday?</label><br>
+                        <label for="desconto" id="labeldesc" class="form-label">Desconto do Produto:</label>
+                        <input type="number" min="0" max="100" id="desconto" class="form-control" id="linkimg" name="desconto">
+                    </div>
+                    
                     <input type="hidden" name="formulario" value="cadastrarproduto">
                     <input value="Cadastrar Produto" class="btn btn-success w-100" type="submit"> </form>');
         }
 
     }else{
         if($_SESSION["PESQUISANDO"] == true){
-            include 'processamenu.php';
             echo('<form id="espacoform" method="post" action="processaprodutos.php">
                     <div class="mb-3">
                         <label for="Cod_Prod" class="form-label">Código do Produto</label>
@@ -193,7 +213,7 @@ $linkpr = $_SESSION['linkpr'];
                         <input type="text" class="form-control" id="linkimg" name="linkimg" readonly value='.$linkpr.'>
                     </div>
                     <input type="hidden" name="formulario" value="pesquisar">
-                    <input value="Pesquisar Produto" class="btn btn-success w-100" type="submit"> </form>');
+                    <input value="Pesquisar Produto" class="btn btn-success w-100" type="submit"></form>');
                     $_SESSION["PESQUISANDO"] = false;
         }
     }
@@ -219,15 +239,33 @@ $linkpr = $_SESSION['linkpr'];
                     <div class="col-3 w-50"><button type="submit" name="botaoexcluir" class="btn btn-primary w-100">EXCLUIR</button></div>
                 </div>
                 <div class="row botãomargin p-1">
-                    <div class="col-6 w-100"><button type="submit" name="botaocadastro" class="btn btn-primary w-100">CADASTRAR</button></div>
+                    <div class="col-3 w-50"><button type="submit" name="botaocadastro" class="btn btn-primary w-100">CADASTRAR</button></div>
+                    <div class="col-3 w-50"><button type="submit" name="botaocadastroblack" class="btn btn-primary w-100">BLACKFRIDAY</button></div>
                 </div>
                 <form>
 
             </div>
         </div>
     </div>
-    <script src="src\js\produto.js">
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const inputdesc = document.getElementById("desconto");
+    const labeldesc = document.getElementById("labeldesc");
+    const checkbox = document.getElementById("checkbux");
+    labeldesc.style.display = "none";
+    inputdesc.style.display = "none";
+
+    checkbox.addEventListener('change',()=>{
+        if(checkbox.checked == false){
+            labeldesc.style.display = "none";
+            inputdesc.style.display = "none";
+        }else{
+            labeldesc.style.display = "flex";
+            inputdesc.style.display = "flex";
+        }
+    });
+    </script>
 </body>
+
 </html>

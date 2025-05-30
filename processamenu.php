@@ -1,6 +1,19 @@
 <?php 
 include 'dbConnection.php';
 
+
+
+function exibirBlack(){
+    $ativablack = confirmarPromo();
+    if($ativablack){
+        echo('<li class="nav-item">
+            <a class="btn btn-secondary" href="blackfriday.php">BlackFriday</a>
+          </li>');
+    }
+
+}
+
+
 function ExibirCodigo(){
     $tabela = "Tb_produto";
     $itensdatabela = DbGetAll($tabela);

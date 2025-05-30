@@ -7,6 +7,7 @@
     $_SESSION['precopr'] = "";
     $_SESSION['quantpr'] = "";
     $_SESSION['linkpr'] = "";
+    $_SESSION["PESQUISANDO"] = false;
     ?>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -114,7 +115,7 @@
         
         <div class="auth-message">
             <?php
-                if($_SESSION['AuthReturn']){
+                if($_SESSION['AuthReturn'] && $_SESSION['AuthReturn'] != null){
                     echo($_SESSION['AuthReturn']);
                 }
                 $_SESSION['AuthReturn'] = "";
